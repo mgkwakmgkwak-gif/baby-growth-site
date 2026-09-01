@@ -38,7 +38,9 @@ var VACCINE_SCHEDULE = [
   { vaccine: "DTaP", dose: "5차", days: 1460, ageLabel: "만 4~6세" },
   { vaccine: "IPV(폴리오)", dose: "4차", days: 1460, ageLabel: "만 4~6세" },
   { vaccine: "MMR", dose: "2차", days: 1460, ageLabel: "만 4~6세" },
-  { vaccine: "일본뇌염(사백신)", dose: "4차", days: 2190, ageLabel: "만 6세" }
+  { vaccine: "일본뇌염(사백신)", dose: "4차", days: 2190, ageLabel: "만 6세" },
+  { vaccine: "Td/Tdap", dose: "", days: 4198, ageLabel: "만 11~12세" },
+  { vaccine: "일본뇌염(사백신)", dose: "5차", days: 4380, ageLabel: "만 12세" }
 ];
 
 function addDays(date, days) {
@@ -112,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     listEl.innerHTML = "";
 
     if (futureItems.length === 0) {
-      nextEl.innerHTML = "국가필수예방접종 표준 일정을 모두 완료했어요! 청소년기 추가 접종(Td/Tdap 등)은 학교 및 보건소 안내를 확인하세요.";
+      nextEl.innerHTML = "국가필수예방접종 표준 일정을 모두 완료했어요! HPV, 인플루엔자 등 이 계산기에 포함되지 않은 접종은 학교 및 보건소 안내를 확인하세요.";
     } else {
       var next = futureItems[0];
       nextEl.innerHTML =
