@@ -641,6 +641,24 @@ section {
   border-left-color: var(--color-primary);
 }
 
+.vaccine-item.done {
+  border-left-color: #9aa5a1;
+  background: #f7f7f5;
+  opacity: 0.75;
+}
+
+.vaccine-item.done .v-name {
+  text-decoration: line-through;
+  color: var(--color-text-soft);
+}
+
+.v-done-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  flex-shrink: 0;
+}
+
 .vaccine-item .v-name {
   font-weight: 700;
   font-size: 0.95rem;
@@ -678,6 +696,11 @@ section {
 .status-pill.upcoming {
   background: var(--color-primary-light);
   color: var(--color-primary-dark);
+}
+
+.status-pill.done {
+  background: #9aa5a1;
+  color: #fff;
 }
 
 /* Checklist */

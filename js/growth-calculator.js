@@ -66,6 +66,14 @@ function percentileLabel(p) {
   return { text: "또래보다 많이 큰 편", cls: "warn" };
 }
 
+// 0.1%, 99.9% 같은 극단값을 "0%"/"100%"로 반올림하면 실제 의미(1% 미만 등)가
+// 사라지므로 별도로 표기한다.
+function formatPercentile(p) {
+  if (p < 1) return "1% 미만";
+  if (p > 99) return "99% 초과";
+  return Math.round(p) + "%";
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("growth-form");
   if (!form) return;
@@ -88,10 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var hResult = calcPercentile(sex, months, height, "height");
     var wResult = calcPercentile(sex, months, weight, "weight");
 
-    document.getElementById("result-height-pct").textContent = hResult.percentile.toFixed(0) + "%";
-    document.getElementById("result-weight-pct").textContent = wResult.percentile.toFixed(0) + "%";
+    document.getElementById("result-height-pct").textContent = formatPercentile(hResult.percentile);
+    document.getElementById("result-weight-pct").textContent = formatPercentile(wResult.percentile);
     document.getElementById("result-height-bar").style.width = hResult.percentile + "%";
     document.getElementById("result-weight-bar").style.width = wResult.percentile + "%";
+
+    var extremeNote = document.getElementById("result-extreme-note");
+    if (Math.abs(hResult.z) > 3 || Math.abs(wResult.z) > 3) {
+      extremeNote.style.display = "block";
+    } else {
+      extremeNote.style.display = "none";
+    }
 
     var hLabel = percentileLabel(hResult.percentile);
     var wLabel = percentileLabel(wResult.percentile);
