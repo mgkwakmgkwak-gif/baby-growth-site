@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://example.com/tools/growth-calculator.html</loc><priority>0.9</priority></url>
+  <url><loc>https://example.com/tools/vaccine-calculator.html</loc><priority>0.9</priority></url>
+  <url><loc>https://example.com/tools/development-checklist.html</loc><priority>0.9</priority></url>
+  <url><loc>https://example.com/articles/growth-table.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/percentile-explained.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/small-or-tall-checklist.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/vaccine-schedule.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/missed-vaccine.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/vaccine-care.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/development-milestones.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/development-concerns.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/corrected-age.html</loc><priority>0.7</priority></url>
+  <url><loc>https://example.com/articles/faq.html</loc><priority>0.7</priority></url>
+</urlset>

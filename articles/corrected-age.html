@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>조산아 보정 연령 계산법 | 이른둥이 발달 평가 기준 - 쑥쑥 성장노트</title>
+<meta name="description" content="조산아(이른둥이)의 발달과 성장을 평가할 때 사용하는 보정 연령 개념과 계산법을 설명하고, 간단한 보정 연령 계산기도 제공합니다." />
+<meta name="keywords" content="조산아보정연령,이른둥이발달,보정연령계산법,미숙아발달" />
+<link rel="canonical" href="https://example.com/articles/corrected-age.html" />
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="../index.html" class="logo"><span class="emoji">🌱</span> 쑥쑥 성장노트</a>
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <a href="../index.html">홈</a>
+      <details class="nav-dropdown">
+        <summary>계산기 도구</summary>
+        <div class="dropdown-panel">
+          <a href="../tools/growth-calculator.html">📏 성장 백분위 계산기</a>
+          <a href="../tools/vaccine-calculator.html">💉 예방접종 시기 계산기</a>
+          <a href="../tools/development-checklist.html">🧸 발달 단계 체크리스트</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>정보글</summary>
+        <div class="dropdown-panel">
+          <div class="group-label">성장</div>
+          <a href="growth-table.html">월령별 평균 키·몸무게 표</a>
+          <a href="percentile-explained.html">백분위란 무엇인가</a>
+          <a href="small-or-tall-checklist.html">또래보다 작거나 클 때 체크리스트</a>
+          <div class="group-label">예방접종</div>
+          <a href="vaccine-schedule.html">국가 필수예방접종 전체 일정표</a>
+          <a href="missed-vaccine.html">접종 시기를 놓쳤을 때 대처법</a>
+          <a href="vaccine-care.html">접종 전후 주의사항</a>
+          <div class="group-label">발달</div>
+          <a href="development-milestones.html">개월수별 발달 마일스톤 총정리</a>
+          <a href="development-concerns.html">발달이 느린 것 같을 때 확인할 것들</a>
+          <div class="group-label">기타</div>
+          <a href="corrected-age.html">조산아 보정 연령 계산법</a>
+          <a href="faq.html">자주 묻는 질문</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">홈</a> / 조산아 보정 연령 계산법</p>
+    <h1>조산아 보정 연령 계산법</h1>
+    <p>이른둥이는 실제 나이 대신 '보정 연령'으로 발달을 봐야 해요</p>
+  </div>
+</div>
+
+<div class="content-wrap">
+
+  <p>예정일보다 일찍 태어난 아이(조산아, 이른둥이)는 실제로 태어난 날짜(역연령) 기준으로 성장·발달을 평가하면 또래보다 느리게 보일 수 있어요. 이때 사용하는 개념이 <strong>보정 연령(교정 연령)</strong>이에요.</p>
+
+  <h2>보정 연령이란?</h2>
+  <p>보정 연령은 <strong>"만약 예정일(재태 40주)에 태어났다면 지금 몇 개월일까"</strong>를 계산한 나이예요. 조산아의 성장과 발달은 실제 생일이 아니라 이 보정 연령을 기준으로 비교해야 더 정확해요.</p>
+
+  <div class="callout info">
+    계산 공식: <strong>보정 연령 = 실제 나이 − (40주 − 출생 시 재태주수)</strong><br />
+    예) 재태 32주에 태어난 아이가 실제로 생후 4개월(약 17주)이 되었다면,<br />
+    보정 연령 = 17주 − (40주 − 32주) = 17주 − 8주 = 약 9주(2개월 남짓)
+  </div>
+
+  <h2>간단 보정 연령 계산기</h2>
+  <div class="calc-box" style="margin:20px 0;">
+    <div class="form-row">
+      <label for="ca-gestation">출생 시 재태주수 <span class="hint">(예: 32)</span></label>
+      <input type="number" id="ca-gestation" min="20" max="39" step="1" placeholder="예: 32" />
+    </div>
+    <div class="form-row">
+      <label for="ca-birthdate">출생일</label>
+      <input type="date" id="ca-birthdate" />
+    </div>
+    <button type="button" class="btn" id="ca-calc-btn">보정 연령 계산하기</button>
+    <div id="ca-result" style="margin-top:16px;font-weight:700;color:var(--color-primary-dark);"></div>
+  </div>
+
+  <h2>언제까지 보정 연령을 적용할까?</h2>
+  <ul>
+    <li>일반적으로 <strong>교정 연령 24개월(만 2세)</strong>까지 성장·발달 평가에 보정 연령을 적용해요.</li>
+    <li>재태주수가 매우 이른 경우(28주 미만 등)에는 소아청소년과 권고에 따라 더 오래 보정 연령을 사용하기도 해요.</li>
+    <li>예방접종은 보정 연령이 아니라 <strong>실제 태어난 날짜(역연령)</strong> 기준으로 진행해요. 접종 시기는 <a href="../tools/vaccine-calculator.html">예방접종 시기 계산기</a>를 참고하세요.</li>
+  </ul>
+
+  <h2>보정 연령으로 성장·발달을 볼 때 팁</h2>
+  <ul>
+    <li>성장 백분위나 발달 체크리스트를 확인할 때, 실제 개월수 대신 <strong>보정 연령</strong>을 입력해서 비교해보세요.</li>
+    <li>조산아는 성장·발달 속도가 아이마다 편차가 크므로, 정기적인 소아청소년과 추적 관찰이 특히 중요해요.</li>
+  </ul>
+
+  <p class="disclaimer">본 콘텐츠 및 계산기는 일반적인 정보 제공을 위한 참고 자료이며, 의학적 진단을 대신하지 않습니다. 조산아의 정확한 발달 평가는 반드시 소아청소년과 전문의와 상담하세요.</p>
+
+  <script>
+    document.getElementById('ca-calc-btn').addEventListener('click', function () {
+      var gestation = parseFloat(document.getElementById('ca-gestation').value);
+      var birthInput = document.getElementById('ca-birthdate').value;
+      var resultEl = document.getElementById('ca-result');
+
+      if (!gestation || gestation < 20 || gestation > 39 || !birthInput) {
+        resultEl.textContent = '재태주수(20~39)와 출생일을 정확히 입력해주세요.';
+        resultEl.style.color = '#e0645f';
+        return;
+      }
+
+      var birthDate = new Date(birthInput + 'T00:00:00');
+      var today = new Date();
+      today.setHours(0,0,0,0);
+
+      if (birthDate > today) {
+        resultEl.textContent = '출생일은 오늘 이전 날짜여야 해요.';
+        resultEl.style.color = '#e0645f';
+        return;
+      }
+
+      var actualDays = Math.round((today - birthDate) / (1000*60*60*24));
+      var prematureDays = (40 - gestation) * 7;
+      var correctedDays = actualDays - prematureDays;
+
+      resultEl.style.color = 'var(--color-primary-dark)';
+
+      if (correctedDays < 0) {
+        resultEl.textContent = '아직 예정일 전이에요. 예정일이 지나면 보정 연령이 계산돼요.';
+        return;
+      }
+
+      var correctedMonths = Math.floor(correctedDays / 30.44);
+      var correctedRemDays = Math.round(correctedDays - correctedMonths * 30.44);
+      resultEl.textContent = '실제 나이 ' + actualDays + '일 중, 보정 연령은 약 ' + correctedMonths + '개월 ' + correctedRemDays + '일이에요.';
+    });
+  </script>
+
+  <a class="back-link" href="../index.html">← 홈으로 돌아가기</a>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h5>쑥쑥 성장노트</h5>
+      <a href="../index.html">홈</a>
+      <a href="faq.html">자주 묻는 질문</a>
+    </div>
+    <div class="footer-col">
+      <h5>계산기 도구</h5>
+      <a href="../tools/growth-calculator.html">성장 백분위 계산기</a>
+      <a href="../tools/vaccine-calculator.html">예방접종 시기 계산기</a>
+      <a href="../tools/development-checklist.html">발달 단계 체크리스트</a>
+    </div>
+    <div class="footer-col">
+      <h5>정보글</h5>
+      <a href="growth-table.html">월령별 키·몸무게 표</a>
+      <a href="vaccine-schedule.html">예방접종 전체 일정표</a>
+      <a href="development-milestones.html">발달 마일스톤 총정리</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>본 사이트의 모든 콘텐츠는 일반적인 정보 제공을 위한 참고 자료이며, 의학적 진단이나 처방을 대신할 수 없습니다.</p>
+    <p>© <span id="year"></span> 쑥쑥 성장노트. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>성장 백분위 계산기 | 우리 아이 키·몸무게 백분위 확인 - 쑥쑥 성장노트</title>
+<meta name="description" content="성별, 개월수, 키(cm), 몸무게(kg)를 입력하면 또래 대비 성장 백분위를 바로 확인할 수 있는 무료 계산기입니다. 대한소아과학회 성장곡선을 참고했어요." />
+<meta name="keywords" content="성장백분위계산기,키몸무게백분위,성장곡선,영유아성장,아기몸무게" />
+<link rel="canonical" href="https://example.com/tools/growth-calculator.html" />
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="../index.html" class="logo"><span class="emoji">🌱</span> 쑥쑥 성장노트</a>
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <a href="../index.html">홈</a>
+      <details class="nav-dropdown">
+        <summary>계산기 도구</summary>
+        <div class="dropdown-panel">
+          <a href="growth-calculator.html">📏 성장 백분위 계산기</a>
+          <a href="vaccine-calculator.html">💉 예방접종 시기 계산기</a>
+          <a href="development-checklist.html">🧸 발달 단계 체크리스트</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>정보글</summary>
+        <div class="dropdown-panel">
+          <div class="group-label">성장</div>
+          <a href="../articles/growth-table.html">월령별 평균 키·몸무게 표</a>
+          <a href="../articles/percentile-explained.html">백분위란 무엇인가</a>
+          <a href="../articles/small-or-tall-checklist.html">또래보다 작거나 클 때 체크리스트</a>
+          <div class="group-label">예방접종</div>
+          <a href="../articles/vaccine-schedule.html">국가 필수예방접종 전체 일정표</a>
+          <a href="../articles/missed-vaccine.html">접종 시기를 놓쳤을 때 대처법</a>
+          <a href="../articles/vaccine-care.html">접종 전후 주의사항</a>
+          <div class="group-label">발달</div>
+          <a href="../articles/development-milestones.html">개월수별 발달 마일스톤 총정리</a>
+          <a href="../articles/development-concerns.html">발달이 느린 것 같을 때 확인할 것들</a>
+          <div class="group-label">기타</div>
+          <a href="../articles/corrected-age.html">조산아 보정 연령 계산법</a>
+          <a href="../articles/faq.html">자주 묻는 질문</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">홈</a> / 성장 백분위 계산기</p>
+    <h1>📏 성장 백분위 계산기</h1>
+    <p>성별, 개월수, 키, 몸무게를 입력하면 또래 대비 성장 백분위를 확인할 수 있어요.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <form class="calc-box" id="growth-form">
+      <div class="form-row">
+        <label>성별</label>
+        <div class="radio-group">
+          <label><input type="radio" name="sex" value="boy" checked /> <span>남아</span></label>
+          <label><input type="radio" name="sex" value="girl" /> <span>여아</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="months">개월수 <span class="hint">(0~36개월)</span></label>
+        <input type="number" id="months" min="0" max="36" step="1" placeholder="예: 8" required />
+      </div>
+      <div class="form-row">
+        <label for="height">키(cm)</label>
+        <input type="number" id="height" min="30" max="130" step="0.1" placeholder="예: 68.5" required />
+      </div>
+      <div class="form-row">
+        <label for="weight">몸무게(kg)</label>
+        <input type="number" id="weight" min="1" max="30" step="0.1" placeholder="예: 8.2" required />
+      </div>
+      <button type="submit" class="btn">백분위 계산하기</button>
+    </form>
+
+    <div class="calc-box result-box" id="growth-result" style="margin-top:20px;">
+      <div class="result-headline" id="result-headline"></div>
+      <div class="result-sub">아래는 또래(같은 성별·개월수) 대비 위치예요</div>
+
+      <div class="percentile-bar-wrap">
+        <div class="percentile-bar-label"><span>키 백분위</span><span id="result-height-pct"></span></div>
+        <div class="percentile-bar"><div class="percentile-bar-fill" id="result-height-bar" style="width:0%"></div></div>
+        <div class="percentile-bar-label"><span></span><span id="result-height-label"></span></div>
+      </div>
+
+      <div class="percentile-bar-wrap">
+        <div class="percentile-bar-label"><span>몸무게 백분위</span><span id="result-weight-pct"></span></div>
+        <div class="percentile-bar"><div class="percentile-bar-fill" id="result-weight-bar" style="width:0%"></div></div>
+        <div class="percentile-bar-label"><span></span><span id="result-weight-label"></span></div>
+      </div>
+
+      <div id="result-extreme-note" class="callout warn" style="display:none;margin-top:16px;">
+        ⚠️ 입력하신 값이 또래 평균과 매우 큰 차이가 나요(통계적으로 극단치 범위). 키·몸무게·개월수를 다시 한 번 확인해보시고, 입력이 맞다면 소아청소년과 상담을 권장해요.
+      </div>
+
+      <p style="margin-top:18px;font-size:0.85rem;color:var(--color-text-soft)">
+        예) 키 백분위 30%는 또래 100명 중 몸이 작은 순서로 세웠을 때 약 30번째에 해당한다는 뜻이에요.
+        <a href="../articles/percentile-explained.html">백분위 자세히 알아보기 →</a>
+      </p>
+    </div>
+
+    <div class="content-wrap" style="max-width:640px;padding-left:0;padding-right:0;">
+      <div class="disclaimer">
+        ⚠️ 이 계산기는 WHO 소아 성장표준 및 국내 성장 경향을 참고하여 만든 <strong>간이 추정 도구</strong>입니다. 병원에서 사용하는 정밀 성장도표(LMS 방식)와 다소 차이가 있을 수 있으며, 의학적 진단을 대신할 수 없습니다. 정확한 평가는 영유아 건강검진 및 소아청소년과 전문의 상담을 통해 확인하세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h5>쑥쑥 성장노트</h5>
+      <a href="../index.html">홈</a>
+      <a href="../articles/faq.html">자주 묻는 질문</a>
+    </div>
+    <div class="footer-col">
+      <h5>계산기 도구</h5>
+      <a href="growth-calculator.html">성장 백분위 계산기</a>
+      <a href="vaccine-calculator.html">예방접종 시기 계산기</a>
+      <a href="development-checklist.html">발달 단계 체크리스트</a>
+    </div>
+    <div class="footer-col">
+      <h5>정보글</h5>
+      <a href="../articles/growth-table.html">월령별 키·몸무게 표</a>
+      <a href="../articles/vaccine-schedule.html">예방접종 전체 일정표</a>
+      <a href="../articles/development-milestones.html">발달 마일스톤 총정리</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>본 사이트의 모든 계산 결과는 일반적인 정보 제공을 위한 참고 자료이며, 의학적 진단이나 처방을 대신할 수 없습니다.</p>
+    <p>© <span id="year"></span> 쑥쑥 성장노트. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/growth-calculator.js"></script>
+</body>
+</html>

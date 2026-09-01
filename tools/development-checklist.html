@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>발달 단계 체크리스트 | 개월수별 발달 마일스톤 확인 - 쑥쑥 성장노트</title>
+<meta name="description" content="개월수를 선택하면 뒤집기, 옹알이, 걷기 등 해당 시기 발달 마일스톤을 체크박스로 확인하고 결과를 요약해주는 무료 발달 체크리스트입니다." />
+<meta name="keywords" content="발달체크리스트,발달마일스톤,영유아발달,아기발달단계,K-DST" />
+<link rel="canonical" href="https://example.com/tools/development-checklist.html" />
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="../index.html" class="logo"><span class="emoji">🌱</span> 쑥쑥 성장노트</a>
+    <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav class="main-nav">
+      <a href="../index.html">홈</a>
+      <details class="nav-dropdown">
+        <summary>계산기 도구</summary>
+        <div class="dropdown-panel">
+          <a href="growth-calculator.html">📏 성장 백분위 계산기</a>
+          <a href="vaccine-calculator.html">💉 예방접종 시기 계산기</a>
+          <a href="development-checklist.html">🧸 발달 단계 체크리스트</a>
+        </div>
+      </details>
+      <details class="nav-dropdown">
+        <summary>정보글</summary>
+        <div class="dropdown-panel">
+          <div class="group-label">성장</div>
+          <a href="../articles/growth-table.html">월령별 평균 키·몸무게 표</a>
+          <a href="../articles/percentile-explained.html">백분위란 무엇인가</a>
+          <a href="../articles/small-or-tall-checklist.html">또래보다 작거나 클 때 체크리스트</a>
+          <div class="group-label">예방접종</div>
+          <a href="../articles/vaccine-schedule.html">국가 필수예방접종 전체 일정표</a>
+          <a href="../articles/missed-vaccine.html">접종 시기를 놓쳤을 때 대처법</a>
+          <a href="../articles/vaccine-care.html">접종 전후 주의사항</a>
+          <div class="group-label">발달</div>
+          <a href="../articles/development-milestones.html">개월수별 발달 마일스톤 총정리</a>
+          <a href="../articles/development-concerns.html">발달이 느린 것 같을 때 확인할 것들</a>
+          <div class="group-label">기타</div>
+          <a href="../articles/corrected-age.html">조산아 보정 연령 계산법</a>
+          <a href="../articles/faq.html">자주 묻는 질문</a>
+        </div>
+      </details>
+    </nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="breadcrumb"><a href="../index.html">홈</a> / 발달 단계 체크리스트</p>
+    <h1>🧸 발달 단계 체크리스트</h1>
+    <p>개월수를 선택하고 해당 시기 발달 마일스톤을 체크해보세요.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="calc-box">
+      <div class="form-row">
+        <label for="month-select">아이 개월수</label>
+        <select id="month-select">
+          <option value="2">2개월</option>
+          <option value="4">4개월</option>
+          <option value="6">6개월</option>
+          <option value="9">9개월</option>
+          <option value="12" selected>12개월</option>
+          <option value="15">15개월</option>
+          <option value="18">18개월</option>
+          <option value="24">24개월</option>
+        </select>
+      </div>
+      <div id="checklist-container"></div>
+    </div>
+
+    <div class="calc-box summary-box" id="checklist-summary" style="margin-top:20px;"></div>
+
+    <div class="content-wrap" style="max-width:640px;padding-left:0;padding-right:0;">
+      <div class="disclaimer">
+        ⚠️ 이 체크리스트는 일반적인 발달 이정표를 참고해 대근육·소근육·언어·사회성 4개 영역만 간단히 정리한 <strong>참고용 도구</strong>이며, 국가에서 시행하는 공식 검사인 <strong>한국 영유아 발달선별검사(K-DST)</strong>가 아닙니다. K-DST는 여기에 더해 인지·자조 영역까지 총 6개 영역, 영역별 8문항을 검사하며 영유아 건강검진 때 공식적으로 시행돼요. 의학적 진단을 대신하지 않으니, 아이마다 발달 속도는 다를 수 있음을 감안하고, 체크 결과가 걱정된다면 소아청소년과나 보건소에서 정식 K-DST 검사를 받아보세요.
+        <br /><br />
+        더 자세한 내용은 <a href="../articles/development-milestones.html">개월수별 발달 마일스톤 총정리</a>와 <a href="../articles/development-concerns.html">발달이 느린 것 같을 때 확인할 것들</a>을 참고하세요.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h5>쑥쑥 성장노트</h5>
+      <a href="../index.html">홈</a>
+      <a href="../articles/faq.html">자주 묻는 질문</a>
+    </div>
+    <div class="footer-col">
+      <h5>계산기 도구</h5>
+      <a href="growth-calculator.html">성장 백분위 계산기</a>
+      <a href="vaccine-calculator.html">예방접종 시기 계산기</a>
+      <a href="development-checklist.html">발달 단계 체크리스트</a>
+    </div>
+    <div class="footer-col">
+      <h5>정보글</h5>
+      <a href="../articles/growth-table.html">월령별 키·몸무게 표</a>
+      <a href="../articles/vaccine-schedule.html">예방접종 전체 일정표</a>
+      <a href="../articles/development-milestones.html">발달 마일스톤 총정리</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>본 사이트의 모든 계산 결과는 일반적인 정보 제공을 위한 참고 자료이며, 의학적 진단이나 처방을 대신할 수 없습니다.</p>
+    <p>© <span id="year"></span> 쑥쑥 성장노트. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/development-checklist.js"></script>
+</body>
+</html>
